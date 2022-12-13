@@ -1,4 +1,5 @@
-import ExpenseItem from "./component/ExpenseItem";
+import React from "react";
+import Expenses from "./component/Expenses";
 
 function App() {
   const expenses = [
@@ -22,12 +23,20 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-      <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date}></ExpenseItem>
-    </div>
+  // Under the hood code that creates automatically when you use JSX
+  return React.createElement(
+    'div',
+    {},
+    React.createElement('h2', {}, "Let's get started!"),
+    React.createElement(Expenses, {items:expenses})
   );
+
+  // return (
+  //   <div>
+  //     <h2>Let's get started!</h2>
+  //     <Expenses items={expenses}></Expenses>
+  //   </div>
+  // );
 }
 
 export default App;
